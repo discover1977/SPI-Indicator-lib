@@ -39,6 +39,7 @@ void IND_Init();
 void IND_OutSym(char *str, int8_t pos);
 void IND_OutInt(int16_t value, uint8_t comma, uint8_t position, uint8_t amount);
 void IND_Clear();
+void IND_SetComma(uint8_t pos, uint8_t value);
 
 // Битовые макросы
 #define SUFIX	UL

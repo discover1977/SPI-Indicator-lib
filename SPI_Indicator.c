@@ -150,6 +150,19 @@ void IND_Clear() {
 	SPI_SendBuffer();
 }
 
+void IND_SetComma(uint8_t pos, uint8_t value) {
+	if (pos > IND_AMOUNT) return;
+	SetBitVal(IndBuffer[pos], 0, value);
+	SPI_SendBuffer();
+}
+
+void IND_SetMaskComma(uint8_t mask) {
+	for (uint8_t i = 0; i < IND_AMOUNT; i++) {
+		SetBitVal(IndBuffer[i], 0, BitIsSet(mask, i));
+	}
+	SPI_SendBuffer();
+}
+
 void IND_Init() {
 	SPI_MasterInit();
 	IND_Clear();
